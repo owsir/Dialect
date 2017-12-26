@@ -1,0 +1,50 @@
+﻿CREATE DATABASE IF NOT EXISTS mydialect default charset utf8 COLLATE utf8_general_ci; 
+
+
+create table user(
+   id INT NOT NULL AUTO_INCREMENT,
+   username VARCHAR(100) NOT NULL,
+   userpassword VARCHAR(100) NOT NULL,
+   homeprovince VARCHAR(20) NULL,
+   homecity VARCHAR(20) NULL,
+   livingcountry VARCHAR(20) NULL,
+   livingprovince VARCHAR(20) NULL,
+   livingcity VARCHAR(20) NULL,
+   createdate DATETIME,
+   PRIMARY KEY (id)
+);
+
+create table forum(
+   id INT NOT NULL AUTO_INCREMENT,
+   homeprovince VARCHAR(20) NULL,
+   homecity VARCHAR(20) NULL,
+   livingcountry VARCHAR(20) NULL,
+   livingprovince VARCHAR(20) NULL,
+   livingcity VARCHAR(20) NULL,
+   PRIMARY KEY (id)
+);
+
+create table forumpost(
+   id INT NOT NULL AUTO_INCREMENT,
+   title VARCHAR(200) NULL,
+   content text NULL,
+   forumid int NULL,
+   userid int NULL,
+   username VARCHAR(100) NULL,
+   createdate DATETIME,
+   isadmindelete boolean null,
+   PRIMARY KEY (id)
+);
+
+
+create table postreply(
+   id INT NOT NULL AUTO_INCREMENT,
+   content text NULL,
+   postid int NULL,
+   userid int NULL,
+   username VARCHAR(100) NULL,
+   createdate DATETIME,
+   isadmindelete boolean null,
+   PRIMARY KEY (id)
+);
+
