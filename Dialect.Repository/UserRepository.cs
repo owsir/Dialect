@@ -21,17 +21,9 @@ namespace Dialect.Repository
         {
             using (_conn)
             {
-                const string sql = @"INSERT  INTO forum
-                            ( id ,
-                              title ,
-                              content ,
-                              createTime
-                            )
-                    VALUES  ( @Id ,
-                              @Title ,
-                              @Content ,
-                              @CreateTime
-                            )";
+                const string sql = @"insert into user
+                            (username,userpassword,homeprovince,homecity,livingcountry,livingprovince,livingcity,createdate)
+                    values (@UserName,@UserPassword,@HomeProvince,@homecity,@livingcountry,@livingprovince,@livingcity,NOW())";
                 return Conn.Execute(sql, user);
             }
         }

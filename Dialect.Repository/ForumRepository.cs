@@ -22,17 +22,9 @@ namespace Dialect.Repository
         {
             using (_conn)
             {
-                const string sql = @"INSERT  INTO forum
-                            ( id ,
-                              title ,
-                              content ,
-                              createTime
-                            )
-                    VALUES  ( @Id ,
-                              @Title ,
-                              @Content ,
-                              @CreateTime
-                            )";
+                const string sql = @"INSERT INTO forum 
+                                    (homeprovince,homecity,livingcountry,livingprovince,livingcity)VALUES
+                                    (@HomeProvince,@HomeCity,@LivingCountry,@LivingProvince,@LivingCity)";
                 return Conn.Execute(sql, forum);
             }
         }
@@ -42,11 +34,11 @@ namespace Dialect.Repository
         //    using (_conn)
         //    {
         //        const string sql = @"SELECT
-	       //                     COUNT(*)
+        //                     COUNT(*)
         //                    FROM
-	       //                     tours
+        //                     tours
         //                    WHERE
-	       //                     title = @Title";
+        //                     title = @Title";
         //        return int.Parse(Conn.ExecuteScalar(sql, new { Title = title }).ToString());
         //    }
         //}

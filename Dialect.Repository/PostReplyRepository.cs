@@ -18,55 +18,34 @@ namespace Dialect.Repository
             }
         }
 
-        public int Insert_Forum(Forum forum)
+        public int Insert_PostReply(PostReply postReply)
         {
             using (_conn)
             {
-                const string sql = @"INSERT  INTO forum
-                            ( id ,
-                              title ,
-                              content ,
-                              createTime
-                            )
-                    VALUES  ( @Id ,
-                              @Title ,
-                              @Content ,
-                              @CreateTime
-                            )";
-                return Conn.Execute(sql, forum);
+                const string sql = @"INSERT INTO postreply
+                            (content,postid,userid,username,createdate)
+                    VALUES  (@Content,@PostId,@UserId,@UserName,NOW())";
+                return Conn.Execute(sql, postReply);
             }
         }
 
-        //public int Is_Exist_Tour(string title)
-        //{
-        //    using (_conn)
-        //    {
-        //        const string sql = @"SELECT
-	       //                     COUNT(*)
-        //                    FROM
-	       //                     tours
-        //                    WHERE
-	       //                     title = @Title";
-        //        return int.Parse(Conn.ExecuteScalar(sql, new { Title = title }).ToString());
-        //    }
-        //}
-
-        public IEnumerable<Forum> Get_Forums()
+        public IEnumerable<PostReply> Get_PostReplies()
         {
             using (_conn)
             {
-                const string sql = @"SELECT * FROM `forum`";
-                return Conn.Query<Forum>(sql);
+                const string sql = @"SELECT * FROM `postreply`";
+                return Conn.Query<PostReply>(sql);
             }
         }
 
-        //public Tour Get_Article(int id)
-        //{
-        //    using (_conn)
-        //    {
-        //        var sql = @"SELECT * FROM `tours` where id="+id;
-        //        return Conn.Query<Tour>(sql).FirstOrDefault();
-        //    }
-        //}
+        public IEnumerable<PostReply> Get_PostRepliesByPostId(int postId)
+        {
+            using (_conn)
+            {
+                var sql = @"SELECT * FROM `postreply` where postid=" + postId + "";
+                return Conn.Query<PostReply>(sql);
+            }
+            
+        }
     }
 }
