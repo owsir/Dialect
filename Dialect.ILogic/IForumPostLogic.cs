@@ -8,5 +8,6 @@ namespace Dialect.ILogic
         int InsertForumPost(ForumPost forumPost);
         IEnumerable<ForumPost> GetForumPosts();
         IEnumerable<ForumPost> GetForumPostsByForumId(int id);
+        ForumPost GetForumPostByPostId(int postId);
     }
 }

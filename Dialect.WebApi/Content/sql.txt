@@ -50,13 +50,20 @@ create table postreply(
 
 //
 
+alter table forumpost add replycount int null;
+
+
+
+
 UPDATE `user` SET `homeprovince`='北京',`homecity`='北京',`livingcountry`='中国',`livingprovince`='北京',`livingcity`='北京' WHERE id=2;
 
+INSERT INTO `user`(`username`, `userpassword`, `homeprovince`, `homecity`, `livingcountry`, `livingprovince`, `livingcity`, `createdate`) VALUES ('david','123456','北京','北京','北京','北京','北京',NOW())
+
 INSERT INTO `forum`(`homeprovince`, `homecity`, `livingcountry`, `livingprovince`, `livingcity`) VALUES ('上海','上海','中国','上海','上海')
-INSERT INTO `forumpost`(`title`, `content`, `forumid`, `userid`, `username`, `createdate`) VALUES ('a post','a post content',1,2,'ABC',NOW())
-INSERT INTO `forumpost`(`title`, `content`, `forumid`, `userid`, `username`, `createdate`) VALUES ('a post2','a post content2',1,2,'ABC',NOW())
-INSERT INTO `forumpost`(`title`, `content`, `forumid`, `userid`, `username`, `createdate`) VALUES ('a post3','a post content3',1,2,'ABC',NOW())
-INSERT INTO `forumpost`(`title`, `content`, `forumid`, `userid`, `username`, `createdate`) VALUES ('a post4','a post content4',2,2,'ABC',NOW())
+INSERT INTO `forumpost`(`title`, `content`, `forumid`, `userid`, `username`, `createdate`) VALUES ('a post','a post content',1,1,'ABC',NOW())
+INSERT INTO `forumpost`(`title`, `content`, `forumid`, `userid`, `username`, `createdate`) VALUES ('a post2','a post content2',1,1,'ABC',NOW())
+INSERT INTO `forumpost`(`title`, `content`, `forumid`, `userid`, `username`, `createdate`) VALUES ('a post3','a post content3',1,1,'ABC',NOW())
+INSERT INTO `forumpost`(`title`, `content`, `forumid`, `userid`, `username`, `createdate`) VALUES ('a post4','a post content4',1,1,'ABC',NOW())
 
 
-INSERT INTO `postreply`(`content`, `postid`, `userid`, `username`, `createdate`) VALUES ('a post reply',1,2,'ABC',NOW())
+INSERT INTO `postreply`(`content`, `postid`, `userid`, `username`, `createdate`) VALUES ('a post reply',1,1,'ABC',NOW())

@@ -3,7 +3,6 @@ using Dialect.IRepository;
 using Dialect.Model;
 using Dialect.ILogic;
 
-// ReSharper disable once CheckNamespace
 namespace Dialect.Logic
 {
     public class ForumLogic: IForumLogic
@@ -17,7 +16,9 @@ namespace Dialect.Logic
 
         public int InsertForum(Forum forum) => _forumRepository.Insert_Forum(forum);
 
-        //public bool IsExistTour(string title) => _tourRepository.Is_Exist_Tour(title) >= 1;
+        public Forum GetForum(int id) => _forumRepository.Get_Forum(id);
+
+        public Forum GetForumByRoute(ForumRoute forumRoute) => _forumRepository.Get_Forum_By_Route(forumRoute);
 
         public IEnumerable<Forum> GetForums() => _forumRepository.Get_Forums();
     }

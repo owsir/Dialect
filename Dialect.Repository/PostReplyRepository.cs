@@ -24,7 +24,7 @@ namespace Dialect.Repository
             {
                 const string sql = @"INSERT INTO postreply
                             (content,postid,userid,username,createdate)
-                    VALUES  (@Content,@PostId,@UserId,@UserName,NOW())";
+                    VALUES (@Content,@PostId,@UserId,@UserName,NOW());UPDATE forumpost SET replycount=(select count(*) from postreply where postid=@PostId) where id=@PostId";
                 return Conn.Execute(sql, postReply);
             }
         }

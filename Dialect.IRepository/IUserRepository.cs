@@ -7,5 +7,7 @@ namespace Dialect.IRepository
     {
         int Insert_User(User user);
         IEnumerable<User> Get_Users();
+        User Get_UserByUserName(string name);
+        User Get_UserByUserId(int id);
     }
 }

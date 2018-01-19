@@ -22,26 +22,57 @@ namespace Dialect.Repository
         {
             using (_conn)
             {
-                const string sql = @"INSERT INTO forum 
+                var sql = @"INSERT INTO forum 
                                     (homeprovince,homecity,livingcountry,livingprovince,livingcity)VALUES
-                                    (@HomeProvince,@HomeCity,@LivingCountry,@LivingProvince,@LivingCity)";
-                return Conn.Execute(sql, forum);
+                                    (@HomeProvince,@HomeCity,@LivingCountry,@LivingProvince,@LivingCity);";
+                sql += "select LAST_INSERT_ID();";
+                return Conn.ExecuteScalar<int>(sql, forum);
             }
         }
 
-        //public int Is_Exist_Tour(string title)
-        //{
-        //    using (_conn)
-        //    {
-        //        const string sql = @"SELECT
-        //                     COUNT(*)
-        //                    FROM
-        //                     tours
-        //                    WHERE
-        //                     title = @Title";
-        //        return int.Parse(Conn.ExecuteScalar(sql, new { Title = title }).ToString());
-        //    }
-        //}
+        public Forum Get_Forum(int id)
+        {
+            using (_conn)
+            {
+                var sql = @"SELECT * FROM `forum` where id=" + id;
+                return Conn.Query<Forum>(sql).FirstOrDefault();
+            }
+        }
+
+        public bool Is_Exist_Forum(Forum forum)
+        {
+            using (_conn)
+            {
+                const string sql = @"SELECT
+                             COUNT(*)
+                            FROM
+                             forum
+                            WHERE
+                             homeprovince = @HomeProvince and 
+                             homecity = @HomeCity and 
+                             livingcountry = @LivingCountry and 
+                             livingprovince = @LivingProvince and 
+                             livingcity = @LivingCity";
+                return int.Parse(Conn.ExecuteScalar(sql, forum).ToString())>0;
+            }
+        }
+        public Forum Get_Forum_By_Route(ForumRoute forumRoute)
+        {
+            using (_conn)
+            {
+                const string sql = @"SELECT
+                             *
+                            FROM
+                             forum
+                            WHERE
+                             homeprovince = @HomeProvince and 
+                             homecity = @HomeCity and 
+                             livingcountry = @LivingCountry and 
+                             livingprovince = @LivingProvince and 
+                             livingcity = @LivingCity";
+                return Conn.Query<Forum>(sql, forumRoute).FirstOrDefault();
+            }
+        }
 
         public IEnumerable<Forum> Get_Forums()
         {

@@ -1,0 +1,39 @@
+﻿@using Dialect.Web.ViewModels
+@model IEnumerable<Dialect.Model.ForumPost>
+@{
+    var user = Session["user"] as UserViewModel;
+    var forumTitle = string.Empty;
+    if (user != null)
+    {
+        forumTitle = string.Concat(user.User.HomeCity, "人在", user.User.LivingCity);
+    }
+}
+<div class="forum-title">@forumTitle</div>
+<div style="margin: 20px;margin-left: 0;">
+ @Html.ActionLink("New Post", "NewPost", "Forum")   
+</div>
+
+<div class="posts-wrap">
+    @if (Model.Any())
+    {
+        foreach (var item in Model)
+        {
+            <div class="post-item-box">
+                <div>
+                    @{
+                        var linkText = string.IsNullOrEmpty(item.Title)? (item.Content.Length<=10? item.Content:item.Content.Substring(0,10)):item.Title;
+
+                        if ((item.ReplyCount ?? 0) > 0)
+                        {
+                            linkText += " (" + item.ReplyCount + ")";
+                        }
+                    }
+                    @Html.ActionLink(linkText, "Index", "ForumPost", new {id = item.Id}, null)
+                </div>
+                <div>
+                    @item.UserName @item.CreateDate
+                </div>
+            </div>
+        }
+    }
+</div>

@@ -22,10 +22,12 @@ namespace Dialect.Repository
         {
             using (_conn)
             {
-                const string sql = @"INSERT  INTO forumpost
-                            (id,title,content,forumid,userid,username,createTime)VALUES
-                            (@Id,@Title,@Content,@ForumId,@UserId,@UserName,NOW())";
-                return Conn.Execute(sql, forumPost);
+                var sql = @"INSERT INTO forumpost
+                            (title,content,forumid,userid,username,createdate)
+VALUES(@Title,@Content,@ForumId,@UserId,@UserName,NOW());";
+                sql += "select LAST_INSERT_ID();";
+                var postId= Conn.ExecuteScalar<int>(sql, forumPost);;
+                return postId;
             }
         }
 
@@ -44,6 +46,15 @@ namespace Dialect.Repository
             {
                 var sql = @"SELECT * FROM `forumpost` where forumid="+ forumId+"";
                 return Conn.Query<ForumPost>(sql);
+            }
+        }
+
+        public ForumPost Get_ForumPostByPostId(int postId)
+        {
+            using (_conn)
+            {
+                var sql = @"SELECT * FROM `forumpost` where id=" + postId + "";
+                return Conn.Query<ForumPost>(sql).FirstOrDefault();
             }
         }
 

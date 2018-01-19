@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dialect.Model", "Dialect.Mo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dialect.IRepository", "Dialect.IRepository\Dialect.IRepository.csproj", "{47677481-4B7E-4D0E-B7E0-549736A4B117}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dialect.Infrustructure", "Dialect.Infrustructure\Dialect.Infrustructure.csproj", "{50B99F86-93AB-442D-BF9F-665756E1F0AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dialect.Web", "Dialect.Web\Dialect.Web.csproj", "{50BBF749-2100-4E11-B356-7EA3FA693085}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +49,14 @@ Global
 		{47677481-4B7E-4D0E-B7E0-549736A4B117}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47677481-4B7E-4D0E-B7E0-549736A4B117}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47677481-4B7E-4D0E-B7E0-549736A4B117}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50B99F86-93AB-442D-BF9F-665756E1F0AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50B99F86-93AB-442D-BF9F-665756E1F0AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50B99F86-93AB-442D-BF9F-665756E1F0AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50B99F86-93AB-442D-BF9F-665756E1F0AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50BBF749-2100-4E11-B356-7EA3FA693085}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50BBF749-2100-4E11-B356-7EA3FA693085}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50BBF749-2100-4E11-B356-7EA3FA693085}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50BBF749-2100-4E11-B356-7EA3FA693085}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

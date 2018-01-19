@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Dialect.ILogic;
 using Dialect.IRepository;
 using Dialect.Model;
 
-// ReSharper disable once CheckNamespace
 namespace Dialect.Logic
 {
     public class ForumPostLogic : IForumPostLogic
@@ -19,6 +19,9 @@ namespace Dialect.Logic
 
         public IEnumerable<ForumPost> GetForumPosts() => _forumPostRepository.Get_ForumPosts();
 
-        public IEnumerable<ForumPost> GetForumPostsByForumId(int id) => _forumPostRepository.Get_ForumPostsByForumId(id);
+        public IEnumerable<ForumPost> GetForumPostsByForumId(int forumId) => _forumPostRepository.Get_ForumPostsByForumId(forumId).OrderByDescending(x=>x.Id);
+
+        public ForumPost GetForumPostByPostId(int postId) => _forumPostRepository.Get_ForumPostByPostId(postId);
+        
     }
 }

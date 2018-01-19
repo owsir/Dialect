@@ -5,7 +5,7 @@ using Dialect.IRepository;
 
 namespace Dialect.Repository.WindsorInstaller
 {
-    public class DataInstaller : IWindsorInstaller
+    public class RepositoryInstaller : IWindsorInstaller
     {
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {

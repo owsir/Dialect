@@ -17,5 +17,16 @@ namespace Dialect.Logic
         public int InsertUser(User user) => _userRepository.Insert_User(user);
 
         public IEnumerable<User> GetUsers() => _userRepository.Get_Users();
+
+        public bool IsUserExist(string username)
+        {
+            var user = _userRepository.Get_UserByUserName(username);
+            return user != null;
+        }
+
+        public User GetUserByUserName(string username)
+        {
+           return _userRepository.Get_UserByUserName(username);
+        }
     }
 }

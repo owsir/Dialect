@@ -7,5 +7,7 @@ namespace Dialect.ILogic
     {
         int InsertForum(Forum forum);
         IEnumerable<Forum> GetForums();
+        Forum GetForum(int id);
+        Forum GetForumByRoute(ForumRoute forumRoute);
     }
 }

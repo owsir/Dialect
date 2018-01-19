@@ -5,7 +5,7 @@ using Castle.Windsor;
 
 namespace Dialect.WebApi.Installer
 {
-    public class ApiControllersInstaller : IWindsorInstaller
+    public class APIControllersInstaller : IWindsorInstaller
     {
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {

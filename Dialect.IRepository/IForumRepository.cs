@@ -8,5 +8,10 @@ namespace Dialect.IRepository
         int Insert_Forum(Forum forum);
 
         IEnumerable<Forum> Get_Forums();
+
+        Forum Get_Forum(int id);
+
+        bool Is_Exist_Forum(Forum forum);
+        Forum Get_Forum_By_Route(ForumRoute forumRoute);
     }
 }

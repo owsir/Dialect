@@ -8,7 +8,6 @@ namespace Dialect.WebApi.Installer
 {
     public static class WindsorBootstrapper
     {
-
         public static void Initialize(IWindsorContainer container)
         {
             Container = container;
@@ -19,13 +18,11 @@ namespace Dialect.WebApi.Installer
         {
             container.Install(FromAssembly.This(),
                 FromAssembly.Containing<LogicInstaller>(),
-                FromAssembly.Containing<DataInstaller>()
+                FromAssembly.Containing<RepositoryInstaller>()
                 );
 
             container.Register(Component.For<IWindsorContainer>().Instance(container).LifestyleSingleton());
         }
-
-
 
         public static IWindsorContainer Container { get; private set; }
     }
