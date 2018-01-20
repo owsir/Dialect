@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Dialect.Model;
+﻿using Dialect.Model;
 
 namespace Dialect.Web.ViewModels
 {
@@ -10,5 +6,6 @@ namespace Dialect.Web.ViewModels
     {
         public User User { get; set; }
         public Forum Forum { get; set; }
+        public string UserForumName => string.Concat(User.HomeCity, "人在", User.LivingCity);
     }
 }

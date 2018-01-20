@@ -18,10 +18,12 @@
 
 /* Set width on the form input elements since they're 100% wide by default */
 input,
-select,
-textarea {
-    max-width: 680px;
+select{
+    max-width: 280px;
 }
+    textarea, input.long-size {
+        max-width: 680px;
+    }
 .posts-wrap {
 }
 .post-item-box {
@@ -34,3 +36,32 @@ textarea {
 .reply-wrap{ margin: 20px;margin-left: 0;}
 .reply-box{ border: 1px solid #ccc;padding: 20px;margin: 20px 0;}
 .forum-title{ margin: 20px;margin-left: 0;}
+@media screen and (min-width: 768px) {
+     .jumbotron {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+}
+
+
+.jumbotron {
+    background: #FBF1E5;
+    
+}
+
+.navbar-inverse {
+    background: #FF7940;
+    border-color: #FF7940;
+}
+    .navbar-inverse .navbar-nav > li > a, .navbar-inverse .navbar-brand {
+        color: #fff;
+    }
+.btn-primary {
+    background: #FF7940;
+    border-color: #FF7940;  
+}
+.btn-primary:hover {
+    background: #FF7940;
+    border-color: #FF7940;
+}
+a,a:hover{ color: #333;}

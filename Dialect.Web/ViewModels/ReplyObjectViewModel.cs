@@ -6,6 +6,7 @@ namespace Dialect.Web.ViewModels
     {
         public int PostId { get; set; }
         [Required]
+        [Display(Name = "内容")]
         public string Content { get; set; }
     }
 }
