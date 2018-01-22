@@ -35,14 +35,20 @@ namespace Dialect.Web.Controllers
             return View();
         }
 
+        [ValidateInput(false)]
         [HttpPost]
-        public ActionResult NewPost(PostObjectViewModel post)
+        public ActionResult NewPost(PostObjectViewModel model)
         {
+            if (string.IsNullOrEmpty(model.Content))
+            {
+                ModelState.AddModelError("", "内容不能为空.");
+                return View(model);
+            }
             var forumId = LoginUser.Forum.Id;
             var postModel=new ForumPost
             {
-                Title = post.Title,
-                Content = post.Content,
+                Title = model.Title,
+                Content = model.Content,
                 ForumId = forumId,
                 UserId = LoginUser.User.Id,
                 UserName = LoginUser.User.UserName

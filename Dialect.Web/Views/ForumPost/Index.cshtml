@@ -8,7 +8,7 @@
         @Model.ForumPost.UserName  @Model.ForumPost.CreateDate
     </div>
     <div>
-        @Model.ForumPost.Content
+        @Html.Raw(Model.ForumPost.Content)
     </div>
 
 </div>
@@ -22,7 +22,7 @@
                     @item.UserName @item.CreateDate
                 </div>
                 <div>
-                    @item.Content
+                    @Html.Raw(item.Content)
                 </div>
             </div>
         }

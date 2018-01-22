@@ -15,14 +15,13 @@
                     @Html.LabelFor(m => m.Title, new { @class = "col-md-2 control-label" })
                     <div class="col-md-10">
                         @Html.TextBoxFor(m => m.Title, new { @class = "form-control long-size" })
-                        @Html.ValidationMessageFor(m => m.Title, "", new { @class = "text-danger" })
                     </div>
                 </div>
                 <div class="form-group">
                     @Html.LabelFor(m => m.Content, new { @class = "col-md-2 control-label" })
                     <div class="col-md-10">
-                        @Html.TextAreaFor(m => m.Content, 10, 50, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.Content, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(m => m.Content)
+                        <div id="summernote"></div>
                     </div>
                 </div>
                 <div class="form-group">
@@ -34,7 +33,44 @@
         </section>
     </div>
 </div>
-
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $(document).ready(function () {
+            function sendFile(file) {
+                var data = new FormData();
+                data.append("file", file);
+                console.log(file);
+                console.log(data);
+                $.ajax({
+                    data: data,
+                    type: "POST",
+                    url: "/UpLoad/UpLoadFile",
+                    cache: false,
+                    contentType: false,
+                    processData:false,
+                    //contentType: 'multipart/form-data',
+                    //enctype: null,
+                    //mimeType: 'multipart/form-data',
+                    success: function (re) {
+                        var imagepath = "/upload/" + re.url;
+                        $("#summernote").summernote('insertImage', imagepath, re.url);
+                    }
+                });
+            }
+
+            $('#summernote').summernote({
+                height: 300,
+                callbacks: {
+                    onImageUpload: function (files) {
+                        sendFile(files[0]);
+                    },
+                    onChange: function (contents) {
+                        $("input[name='Content']").val(contents);
+                        console.log(contents);
+                    }
+                }
+            });
+        });
+    </script>
 }

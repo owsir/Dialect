@@ -17,6 +17,10 @@
     {
         foreach (var item in Model)
         {
+            if (string.IsNullOrEmpty(item.Content))
+            {
+                continue;
+            }
             <div class="post-item-box">
                 <div>
                     @{
@@ -28,6 +32,9 @@
                         }
                     }
                     @Html.ActionLink(linkText, "Index", "ForumPost", new {id = item.Id}, null)
+
+                    @Html.Raw(item.Content)
+
                 </div>
                 <div>
                     @item.UserName @item.CreateDate
