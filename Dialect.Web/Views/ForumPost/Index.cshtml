@@ -40,8 +40,8 @@
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">
                     <div class="col-md-12">
-                        @Html.TextAreaFor(m => m.ReplyObjectViewModel.Content,10,50, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.ReplyObjectViewModel.Content, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(m => m.ReplyObjectViewModel.Content)
+                        <div id="summernote"></div>
                     </div>
                 </div>
                 <div class="form-group">
@@ -56,4 +56,38 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    <script>
+            $(document).ready(function () {
+                function sendFile(file) {
+                    var data = new FormData();
+                    data.append("file", file);
+                    $.ajax({
+                        data: data,
+                        type: "POST",
+                        url: "/UpLoad/UpLoadFile",
+                        cache: false,
+                        contentType: false,
+                        processData:false,
+                        success: function (re) {
+                            var imagepath = "/upload/" + re.url;
+                            $("#summernote").summernote('insertImage', imagepath, re.url);
+                        }
+                    });
+                }
+
+                $('#summernote').summernote({
+                    height: 300,
+                    toolbar: [['insert', ['link', 'picture', 'video']]
+                    ],
+                    callbacks: {
+                        onImageUpload: function (files) {
+                            sendFile(files[0]);
+                        },
+                        onChange: function (contents) {
+                            $("input[name='ReplyObjectViewModel.Content']").val(contents);
+                        }
+                    }
+                });
+            });
+    </script>
 }

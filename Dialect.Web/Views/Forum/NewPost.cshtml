@@ -49,9 +49,6 @@
                     cache: false,
                     contentType: false,
                     processData:false,
-                    //contentType: 'multipart/form-data',
-                    //enctype: null,
-                    //mimeType: 'multipart/form-data',
                     success: function (re) {
                         var imagepath = "/upload/" + re.url;
                         $("#summernote").summernote('insertImage', imagepath, re.url);
@@ -61,6 +58,11 @@
 
             $('#summernote').summernote({
                 height: 300,
+                toolbar: [
+                   ['font', ['bold', 'underline', 'clear']],
+                   ['color', ['color']],
+                   ['insert', ['link', 'picture', 'video']]
+                ],
                 callbacks: {
                     onImageUpload: function (files) {
                         sendFile(files[0]);
