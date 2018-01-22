@@ -69,6 +69,7 @@
                         contentType: false,
                         processData:false,
                         success: function (re) {
+                            console.log(re);
                             var imagepath = "/upload/" + re.url;
                             $("#summernote").summernote('insertImage', imagepath, re.url);
                         }

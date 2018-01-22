@@ -10,13 +10,20 @@ namespace Dialect.Web.Controllers
         [HttpPost]
         public JsonResult UpLoadFile()
         {
-            var file = Request.Files[0];
-            if (file == null) return null;
-            var fileName = string.Concat(Guid.NewGuid().ToString(), file.FileName);
-            var filePath = Path.Combine(Server.MapPath("../Upload/"), fileName);
-            file.SaveAs(filePath);
-            var photo = new {url = fileName };
-            return Json(photo);
+            try
+            {
+                var file = Request.Files[0];
+                if (file == null) return null;
+                var fileName = string.Concat(Guid.NewGuid().ToString(), file.FileName);
+                var filePath = Path.Combine(Server.MapPath("../Upload/"), fileName);
+                file.SaveAs(filePath);
+                var photo = new {url = fileName};
+                return Json(photo);
+            }
+            catch (Exception e)
+            {
+                return Json(e);
+            }
         }
 
     }
