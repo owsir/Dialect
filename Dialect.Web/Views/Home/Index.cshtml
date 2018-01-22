@@ -1,31 +1,43 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
-
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+﻿<div class="jumbotron">
+    <h2>他乡遇故知</h2>
+    <p class="lead">无论离家多远,故乡永远是每个人心中最柔软的羁绊.听听乡音,说说家乡话,故乡,就在你的身边......</p>
+    <p><a href="@Url.Action("Index","Forum")" class="btn btn-primary btn-lg">进入</a></p>
 </div>
 
-<div class="row">
+<div class="row sec-3">
     <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        <h2>IOS APP</h2>
+        <a href="###" class="ciqclickbtn">
+            <i class="icon ios"></i>
+            <p>iPhone</p>
+        </a>
     </div>
     <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        <h2>安卓 APP</h2>
+        <a href="###" class="ciqclickbtn">
+            <i class="icon android"></i>
+            <p>Android</p>
+        </a>
     </div>
     <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        <h2>Windows Phone</h2>
+        <a href="###" class="ciqclickbtn">
+            <i class="icon wp"></i>
+            <p>WindowsPhone</p>
+        </a>
     </div>
 </div>
+
+<style>
+    .sec-3 .icon{width:43px;height:50px;display:block;margin:0px auto 18px;}
+    .sec-3 .icon.ios{background:url(/content/images/icon.png) 0 0 no-repeat;}
+        .sec-3 .icon.android {
+            background: url(/content/images/icon.png) -78px 0 no-repeat;
+        }
+        .sec-3 .icon.wp {
+            background: url(/content/images/icon.png) -155px 0 no-repeat;
+        }
+    .sec-3 a{padding-bottom: 160px;border: 1px solid #ddd;text-decoration: none;display: block;color:#8b8a8a;height:174px;padding-top:70px;-webkit-transition: all 0.3s;-transition: all 0.3s;-ms-transition: all 0.3s;-moz-transition: all 0.3s;}
+    .sec-3 p{text-align: center}
+   
+</style>

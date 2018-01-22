@@ -1,5 +1,5 @@
 ﻿@model Dialect.Web.ViewModels.ForumPostViewModel
-<div style="margin: 20px;margin-left: 0;">@Html.ActionLink("Back", "Index", "Forum")</div>
+<div style="margin: 20px;margin-left: 0;">@Html.ActionLink("返回", "Index", "Forum")</div>
 <div class="post-box">
     <div>
         <b>@Model.ForumPost.Title</b>
@@ -34,20 +34,19 @@
         <section>
             @using (Html.BeginForm("NewReply", "ForumPost", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
-                <h4>Add a new reply.</h4>
+                <h4>回复</h4>
                 <hr/>
                 @Html.HiddenFor(m => m.ReplyObjectViewModel.PostId);
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">
-                    @Html.LabelFor(m => m.ReplyObjectViewModel.Content, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
+                    <div class="col-md-12">
                         @Html.TextAreaFor(m => m.ReplyObjectViewModel.Content,10,50, new { @class = "form-control" })
                         @Html.ValidationMessageFor(m => m.ReplyObjectViewModel.Content, "", new { @class = "text-danger" })
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Submit" class="btn btn-default" />
+                    <div class="col-md-12">
+                        <input type="submit" value="提交" class="btn btn-default" />
                     </div>
                 </div>
             }

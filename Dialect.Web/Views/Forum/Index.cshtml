@@ -5,12 +5,11 @@
     var forumTitle = string.Empty;
     if (user != null)
     {
-        forumTitle = string.Concat(user.User.HomeCity, "人在", user.User.LivingCity);
+        forumTitle = user.UserForumName;
     }
 }
-<div class="forum-title">@forumTitle</div>
 <div style="margin: 20px;margin-left: 0;">
- @Html.ActionLink("New Post", "NewPost", "Forum")   
+ @Html.ActionLink("发帖", "NewPost", "Forum")   
 </div>
 
 <div class="posts-wrap">
