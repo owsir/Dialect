@@ -42,7 +42,7 @@ namespace Dialect.Web.Models
     public class ForgotViewModel
     {
         [Required]
-        [Display(Name = "Email")]
+        [Display(Name = "用户名")]
         public string Email { get; set; }
     }
 
@@ -50,7 +50,6 @@ namespace Dialect.Web.Models
     {
         [Required]
         [Display(Name = "用户名")]
-        [EmailAddress]
         public string Email { get; set; }
 
         [Required]
@@ -119,7 +118,6 @@ namespace Dialect.Web.Models
     public class ForgotPasswordViewModel
     {
         [Required]
-        [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
     }

@@ -8,7 +8,7 @@
         forumTitle = user.UserForumName;
     }
 }
-<div style="margin: 20px;margin-left: 0;">
+<div style="margin: 20px;margin-left: 0; font-size: 16px;">
  @Html.ActionLink("发帖", "NewPost", "Forum")   
 </div>
 
@@ -22,7 +22,16 @@
                 continue;
             }
             <div class="post-item-box">
-                <div>
+                <div class="post-header-wrap">
+                    <div class="user-photo">
+                        <img src="~/Content/images/touxiang.png" class="tx-photo"/>
+                    </div>
+                    <div class="user-info">
+                        <p>@item.UserName</p>
+                        <p>@item.CreateDate.ToString("yyyy-MM-dd HH:mm")</p>
+                    </div>
+                </div>
+                <div class="post-title">
                     @{
                         var linkText = string.IsNullOrEmpty(item.Title) ? (item.Content.Length <= 10 ? item.Content : item.Content.Substring(0, 10)) : item.Title;
 
@@ -32,13 +41,9 @@
                         }
                     }
                     @Html.ActionLink(linkText, "Index", "ForumPost", new {id = item.Id}, null)
-
                 </div>
-                <div>
+                <div class="post-content">
                     @Html.Raw(item.Content)
-                </div>
-                <div>
-                    @item.UserName @item.CreateDate
                 </div>
             </div>
         }

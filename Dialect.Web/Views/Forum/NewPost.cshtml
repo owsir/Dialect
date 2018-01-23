@@ -5,27 +5,23 @@
 }
 <div class="row" style="margin-top: 20px;">
     <div class="col-md-12">
-        <section>
+        <section class="new-post-section">
             @using (Html.BeginForm("NewPost", "Forum",FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
                 <h4>发帖</h4>
                 <hr />
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">
-                    @Html.LabelFor(m => m.Title, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.Title, new { @class = "form-control long-size" })
-                    </div>
+                    @Html.LabelFor(m => m.Title)
+                    @Html.TextBoxFor(m => m.Title, new { @class = "form-control long-size" })
                 </div>
                 <div class="form-group">
-                    @Html.LabelFor(m => m.Content, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.HiddenFor(m => m.Content)
-                        <div id="summernote"></div>
-                    </div>
+                    @Html.LabelFor(m => m.Content)
+                    @Html.HiddenFor(m => m.Content)
+                    <div id="summernote"></div>
                 </div>
                 <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
+                    <div>
                         <input type="submit" value="提交" class="btn btn-default" />
                     </div>
                 </div>

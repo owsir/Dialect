@@ -11,7 +11,7 @@ namespace Dialect.Infrustructure
 
         static CacheManager()
         {
-            cache = new MemoryCache("VisitorLog");
+            cache = new MemoryCache("dialect");
         }
 
         public static void Add(string key, object value)

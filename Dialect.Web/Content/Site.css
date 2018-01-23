@@ -27,14 +27,19 @@ select{
 .posts-wrap {
 }
 .post-item-box {
-    border: 1px solid #ccc;padding: 20px;margin: 20px 0;
+    border-top: 1px dashed #ddd;padding: 10px 0;
 }
 .post-box {
     margin: 20px;
     margin-left: 0;
+    border-top: 1px dashed #ddd;
+    border-bottom: 1px dashed #ddd;
+    padding: 20px 0;
+    padding-top: 10px;
 }
+.post-box-title{ margin: 10px 0;}
 .reply-wrap{ margin: 20px;margin-left: 0;}
-.reply-box{ border: 1px solid #ccc;padding: 20px;margin: 20px 0;}
+.reply-box{ border-bottom: 1px solid #ddd;margin: 10px 0;}
 .forum-title{ margin: 20px;margin-left: 0;}
 @media screen and (min-width: 768px) {
      .jumbotron {
@@ -65,3 +70,15 @@ select{
     border-color: #FF7940;
 }
 a,a:hover{ color: #333;}
+.post-header-wrap{ clear: both;min-height: 40px;}
+.user-photo{ height: 40px;}
+.tx-photo{ width: 40px;height: 40px;border-radius: 40px;}
+.user-info,.user-photo{ float: left;}
+.user-info{ padding-top: 6px;margin-left: 15px;}
+.user-info p{ margin: 0;padding: 0;font-size: 10px;margin-bottom: 2px;}
+.post-title{ font-weight: bold;margin-top: 5px;margin-left: 55px;}
+.post-content{margin-top:5px;margin-left: 55px;}
+.post-content p{ padding:0;margin: 0;padding-left: 0;}
+.post-content img{ max-height: 200px;max-width: 200px;}
+.new-post-section .form-group{ margin-left: 0;}
+.new-post-section  input{max-width: 100%;}
