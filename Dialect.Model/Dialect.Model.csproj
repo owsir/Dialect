@@ -42,6 +42,9 @@
   <ItemGroup>
     <Compile Include="Forum.cs" />
     <Compile Include="ForumPost.cs" />
+    <Compile Include="ForumRoute.cs" />
+    <Compile Include="MyFriend.cs" />
+    <Compile Include="MyMessage.cs" />
     <Compile Include="PostReply.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs" />

@@ -12,5 +12,7 @@ namespace Dialect.IRepository
         IEnumerable<ForumPost> Get_ForumPostsByForumId(int forumId);
 
         ForumPost Get_ForumPostByPostId(int postId);
+
+        IEnumerable<ForumPost> Get_PostsByUserId(int userid);
     }
 }

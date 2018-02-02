@@ -9,5 +9,6 @@ namespace Dialect.IRepository
         IEnumerable<User> Get_Users();
         User Get_UserByUserName(string name);
         User Get_UserByUserId(int id);
+        IEnumerable<User> Get_UsersByForumId(int id);
     }
 }

@@ -9,5 +9,6 @@ namespace Dialect.ILogic
         IEnumerable<ForumPost> GetForumPosts();
         IEnumerable<ForumPost> GetForumPostsByForumId(int id);
         ForumPost GetForumPostByPostId(int postId);
+        IEnumerable<ForumPost> GetPostsByUserId(int userid);
     }
 }

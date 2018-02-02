@@ -28,5 +28,10 @@ namespace Dialect.Logic
         {
            return _userRepository.Get_UserByUserName(username);
         }
+
+        public IEnumerable<User> GetUsersByForumId(int id)
+        {
+            return _userRepository.Get_UsersByForumId(id);
+        }
     }
 }

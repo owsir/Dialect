@@ -51,6 +51,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MyFriendsLogic.cs" />
+    <Compile Include="MyMessagesLogic.cs" />
     <Compile Include="PostReplyLogic.cs" />
     <Compile Include="ForumPostLogic.cs" />
     <Compile Include="UserLogic.cs" />

@@ -1,23 +1,21 @@
 ﻿@model Dialect.Web.ViewModels.ForumPostViewModel
 <div style="margin: 20px;margin-left: 0; font-size: 16px;">@Html.ActionLink("返回", "Index", "Forum")</div>
 <div class="post-box">
-
+    <div class="post-box-title">
+        <b>@Model.ForumPost.Title</b>
+    </div>
     <div class="post-header-wrap">
         <div class="user-photo">
-            <img src="~/Content/images/touxiang.png" class="tx-photo"  style="border-radius: 0;"/>
+            <img src="~/Content/images/touxiang.png" class="tx-photo"/>
         </div>
         <div class="user-info">
             <p>@Model.ForumPost.UserName</p>
             <p>@Model.ForumPost.CreateDate.ToString("yyyy-MM-dd HH:mm")</p>
         </div>
     </div>
-    <div class="post-box-title">
-        <b>@Model.ForumPost.Title</b>
-    </div>
-    <div>
+    <div class="post-box-content">
         @Html.Raw(Model.ForumPost.Content)
     </div>
-
 </div>
 <h4>回复(@Model.PostReplies.Count())</h4>
 <div class="reply-wrap">

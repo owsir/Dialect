@@ -52,6 +52,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IForumRepository.cs" />
+    <Compile Include="IMyFriendsRepository.cs" />
+    <Compile Include="IMyMessagesRepository.cs" />
     <Compile Include="IPostReplyRepository.cs" />
     <Compile Include="IUserRepository.cs" />
     <Compile Include="IForumPostRepository.cs" />

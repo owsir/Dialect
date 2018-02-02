@@ -47,12 +47,22 @@ namespace Dialect.Repository
                 return Conn.Query<User>(sql, parameters).SingleOrDefault();
             }
         }
+
         public User Get_UserByUserId(int id)
         {
             using (_conn)
             {
                 var sql = @"SELECT * FROM `user` where id="+id;
                 return Conn.Query<User>(sql).SingleOrDefault();
+            }
+        }
+
+        public IEnumerable<User> Get_UsersByForumId(int id)
+        {
+            using (_conn)
+            {
+                var sql = @"SELECT a.* FROM `user` as a,`forum` as b WHERE a.homecity=b.homecity and a.homeprovince=b.homecity and a.livingcity=b.homecity and a.livingcountry=b.homecity and a.livingprovince=b.homecity and b.id="+ id;
+                return Conn.Query<User>(sql);
             }
         }
     }

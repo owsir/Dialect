@@ -18,9 +18,13 @@ namespace Dialect.Web.Controllers
             _postReplyLogic = postReplyLogic;
         }
 
-        public ActionResult Index(int id)
+        public ActionResult Index(int? id)
         {
-            return View(GetPostAndRepliesById(id));
+            if (id == null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            return View(GetPostAndRepliesById((int)id));
         }
 
         [ValidateInput(false)]

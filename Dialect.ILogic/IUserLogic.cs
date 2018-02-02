@@ -8,7 +8,7 @@ namespace Dialect.ILogic
         int InsertUser(User user);
         IEnumerable<User> GetUsers();
         bool IsUserExist(string username);
-
         User GetUserByUserName(string username);
+        IEnumerable<User> GetUsersByForumId(int id);
     }
 }

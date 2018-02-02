@@ -58,6 +58,15 @@ VALUES(@Title,@Content,@ForumId,@UserId,@UserName,NOW());";
             }
         }
 
+        public IEnumerable<ForumPost> Get_PostsByUserId(int userid)
+        {
+            using (_conn)
+            {
+                var sql = @"SELECT * FROM `forumpost` where userid=" + userid + "";
+                return Conn.Query<ForumPost>(sql);
+            }
+        }
+
     }
 
 }

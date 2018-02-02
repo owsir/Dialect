@@ -51,7 +51,7 @@ create table postreply(
 //
 
 alter table forumpost add replycount int null;
-
+alter table postreply add parentid int null;
 
 
 
@@ -64,6 +64,37 @@ INSERT INTO `forumpost`(`title`, `content`, `forumid`, `userid`, `username`, `cr
 INSERT INTO `forumpost`(`title`, `content`, `forumid`, `userid`, `username`, `createdate`) VALUES ('a post2','a post content2',1,1,'ABC',NOW())
 INSERT INTO `forumpost`(`title`, `content`, `forumid`, `userid`, `username`, `createdate`) VALUES ('a post3','a post content3',1,1,'ABC',NOW())
 INSERT INTO `forumpost`(`title`, `content`, `forumid`, `userid`, `username`, `createdate`) VALUES ('a post4','a post content4',1,1,'ABC',NOW())
-
-
 INSERT INTO `postreply`(`content`, `postid`, `userid`, `username`, `createdate`) VALUES ('a post reply',1,1,'ABC',NOW())
+
+//update 2018/2/1
+alter table forumpost add isdelete boolean null;
+alter table postreply add isdelete boolean null;
+alter table forumpost add vote int null;
+alter table postreply add vote int null;
+
+create table myfriend(
+   id INT NOT NULL AUTO_INCREMENT,
+   userid int NULL,
+   frienduserid int NULL,
+   createdate DATETIME,
+   PRIMARY KEY (id)
+);
+
+create table mymessage(
+   id INT NOT NULL AUTO_INCREMENT,
+   content text NULL,
+   fromuserid int NULL,
+   touserid int NULL,
+   createdate DATETIME,
+   isread boolean null,
+   isfromuserdelete boolean null,
+   istouserdelete boolean null,
+   PRIMARY KEY (id)
+);
+
+
+
+
+
+
+

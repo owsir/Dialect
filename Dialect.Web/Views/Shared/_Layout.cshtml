@@ -1,5 +1,7 @@
 ﻿@using Dialect.Web.ViewModels
 @{
+    var pageTitle = "家乡话 - 他乡遇故知";
+    pageTitle = "Wendy Wu";
     var user = Session["user"] as UserViewModel;
     var forumTitle = "论坛";
     if (user != null)
@@ -12,13 +14,13 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>家乡话 - 他乡遇故知</title>
+    <title>@pageTitle</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-inverse navbar-fixed-top" style="display: none;">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -40,7 +42,7 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
+        <footer style="display: none;">
             <p>&copy; @DateTime.Now.Year - 家乡话 - jiaxianghua.com</p>
         </footer>
     </div>

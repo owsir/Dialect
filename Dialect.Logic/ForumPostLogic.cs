@@ -22,6 +22,6 @@ namespace Dialect.Logic
         public IEnumerable<ForumPost> GetForumPostsByForumId(int forumId) => _forumPostRepository.Get_ForumPostsByForumId(forumId).OrderByDescending(x=>x.Id);
 
         public ForumPost GetForumPostByPostId(int postId) => _forumPostRepository.Get_ForumPostByPostId(postId);
-        
+        public IEnumerable<ForumPost> GetPostsByUserId(int userid) => _forumPostRepository.Get_PostsByUserId(userid);
     }
 }

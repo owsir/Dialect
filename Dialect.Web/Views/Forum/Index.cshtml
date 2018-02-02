@@ -17,7 +17,7 @@
     {
         foreach (var item in Model)
         {
-            if (string.IsNullOrEmpty(item.Content))
+            if (string.IsNullOrEmpty(item.Content) || string.IsNullOrEmpty(item.Title))
             {
                 continue;
             }
@@ -27,25 +27,40 @@
                         <img src="~/Content/images/touxiang.png" class="tx-photo"/>
                     </div>
                     <div class="user-info">
-                        <p>@item.UserName</p>
-                        <p>@item.CreateDate.ToString("yyyy-MM-dd HH:mm")</p>
+                        <p style="font-size: 16px;">
+                            @Html.ActionLink(item.Title, "Index", "ForumPost", new {id = item.Id}, null)
+                        </p>
+                        <p style="color: #8c8c8c;">
+                            @item.UserName @item.CreateDate.ToString("MM-dd HH:mm")
+                            @if (item.ReplyCount > 0)
+                            {
+                                <span class="numb msg"><i></i>@item.ReplyCount</span>
+                            }
+                        </p>
                     </div>
-                </div>
-                <div class="post-title">
-                    @{
-                        var linkText = string.IsNullOrEmpty(item.Title) ? (item.Content.Length <= 10 ? item.Content : item.Content.Substring(0, 10)) : item.Title;
-
-                        if ((item.ReplyCount ?? 0) > 0)
-                        {
-                            linkText += " (" + item.ReplyCount + ")";
-                        }
-                    }
-                    @Html.ActionLink(linkText, "Index", "ForumPost", new {id = item.Id}, null)
-                </div>
-                <div class="post-content">
-                    @Html.Raw(item.Content)
                 </div>
             </div>
         }
     }
 </div>
+<style>
+    .numb {
+    float: right;
+    _display: inline-block;
+    font-size: 12px;
+    height: 18px;
+    margin-bottom: 3px;
+    margin-left: 10px;
+}
+.numb i {
+    display: inline-block;
+    margin: -2px 4px 0;
+    background: url(/Content/images/invitation.png) 0 0 no-repeat;
+    vertical-align: middle;
+}
+.numb.msg i {
+    width: 16px;
+    height: 11px;
+    background-position: -3px -12px;
+}
+</style>
